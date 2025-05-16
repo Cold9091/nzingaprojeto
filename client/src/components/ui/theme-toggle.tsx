@@ -9,7 +9,7 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="w-10 h-10 rounded-full transition-all duration-300 hover:bg-black/10 dark:hover:bg-white/10"
+      className="w-10 h-10 rounded-full transition-all duration-300 hover:bg-black/10 dark:hover:bg-white/10 shadow-md dark:shadow-white/5 active:scale-95"
       aria-label="Alternar tema"
     >
       {theme === "light" ? (
@@ -23,7 +23,7 @@ export function ThemeToggle() {
           strokeWidth="2" 
           strokeLinecap="round" 
           strokeLinejoin="round" 
-          className="text-gray-800"
+          className="text-gray-800 dark:text-gray-200"
         >
           <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
         </svg>
