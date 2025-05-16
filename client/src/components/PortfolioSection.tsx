@@ -266,7 +266,7 @@ export default function PortfolioSection() {
     <section 
       id="portfolio" 
       ref={sectionRef}
-      className="py-28 relative bg-gray-50 overflow-hidden"
+      className="py-28 relative bg-gray-50 dark:bg-gray-900 overflow-hidden transition-colors duration-300"
     >
       {/* Elementos decorativos */}
       <div className="absolute inset-0 overflow-hidden opacity-10">
@@ -279,9 +279,9 @@ export default function PortfolioSection() {
           <div className="inline-block">
             <span className="text-[#FFC400] font-semibold uppercase tracking-wider text-sm">Projetos destacados</span>
           </div>
-          <h2 className="text-black font-bold text-4xl md:text-5xl mt-4 mb-6">Nosso Portfólio</h2>
+          <h2 className="text-black dark:text-white font-bold text-4xl md:text-5xl mt-4 mb-6 transition-colors duration-300">Nosso Portfólio</h2>
           <div className="w-24 h-1 bg-[#FFC400] mx-auto"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto mt-6 text-lg">
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-6 text-lg transition-colors duration-300">
             Conheça alguns dos nossos projetos mais recentes e como transformamos desafios em soluções criativas que impactam positivamente o mercado.
           </p>
         </div>
@@ -298,7 +298,7 @@ export default function PortfolioSection() {
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 filter === category 
                   ? 'bg-[#FFC400] text-black shadow-lg' 
-                  : 'bg-white/80 text-gray-700 hover:bg-white hover:shadow-md'
+                  : 'bg-white/80 dark:bg-gray-800/80 text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-700 hover:shadow-md'
               }`}
             >
               {category === 'todos' ? 'Todos' : category}
