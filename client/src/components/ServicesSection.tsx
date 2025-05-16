@@ -58,10 +58,10 @@ function ServiceCard({ icon, title, description, slug, index, isHovered, onHover
       onMouseLeave={onLeave}
     >
       <Card 
-        className={`h-full bg-gradient-to-br from-white to-gray-50 shadow-xl rounded-xl overflow-hidden glass-card cursor-pointer ${
+        className={`h-full bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 shadow-xl rounded-xl overflow-hidden glass-card cursor-pointer border ${
           isHovered 
             ? 'scale-105 shadow-2xl border-[#FFC400]' 
-            : 'scale-100 border-transparent'
+            : 'scale-100 border-gray-100 dark:border-gray-700'
         } transition-all duration-500`}
         onClick={handleCardClick}
       >
@@ -82,13 +82,13 @@ function ServiceCard({ icon, title, description, slug, index, isHovered, onHover
           
           {/* Título com efeito de destaque */}
           <h3 className={`font-bold text-2xl mb-4 transition-colors duration-300 ${
-            isHovered ? 'text-[#FFC400]' : 'text-black'
+            isHovered ? 'text-[#FFC400]' : 'text-black dark:text-white'
           }`}>
             {title}
           </h3>
           
           {/* Descrição */}
-          <p className="text-gray-600 leading-relaxed mb-6">
+          <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 transition-colors duration-300">
             {description}
           </p>
           
@@ -317,7 +317,7 @@ export default function ServicesSection() {
     <section 
       id="servicos" 
       ref={sectionRef}
-      className="py-28 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden"
+      className="py-28 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-black relative overflow-hidden transition-colors duration-300"
     >
       {/* Elementos decorativos */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#FFC400] opacity-[0.03] rounded-full transform -translate-y-1/2 translate-x-1/2"></div>
@@ -328,9 +328,9 @@ export default function ServicesSection() {
           <div className="inline-block">
             <span className="text-[#FFC400] font-semibold uppercase tracking-wider text-sm">O que fazemos</span>
           </div>
-          <h2 className="text-black font-bold text-4xl md:text-5xl mt-4 mb-6">Nossos Serviços</h2>
+          <h2 className="text-black dark:text-white font-bold text-4xl md:text-5xl mt-4 mb-6 transition-colors duration-300">Nossos Serviços</h2>
           <div className="w-24 h-1 bg-[#FFC400] mx-auto"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto mt-6 text-lg">
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-6 text-lg transition-colors duration-300">
             Oferecemos soluções estratégicas e criativas que impulsionam marcas a se destacarem no mercado competitivo atual.
           </p>
         </div>
@@ -354,7 +354,7 @@ export default function ServicesSection() {
         <div className={`text-center mt-16 transition-all duration-1000 delay-500 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <Button 
             onClick={scrollToContact}
-            className="bg-black hover:bg-gray-900 text-white py-6 px-8 rounded-lg font-medium group shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+            className="bg-black dark:bg-gray-800 hover:bg-gray-800 dark:hover:bg-gray-700 text-white py-6 px-8 rounded-lg font-medium group shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
           >
             <span>Entre em contato para saber mais</span>
             <svg 
