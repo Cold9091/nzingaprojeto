@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Animações avançadas */
 @keyframes fadeInUp {
   from {
       opacity: 0;
@@ -13,25 +14,206 @@
   }
 }
 
+@keyframes fadeInRight {
+  from {
+      opacity: 0;
+      transform: translateX(-50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+      opacity: 0;
+      transform: translateX(50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes glowingBorder {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 196, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 196, 0, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(255, 196, 0, 0.5);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
 .animate-fade-in-up {
   opacity: 0;
   animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-fade-in-right {
+  opacity: 0;
+  animation: fadeInRight 0.8s ease forwards;
+}
+
+.animate-fade-in-left {
+  opacity: 0;
+  animation: fadeInLeft 0.8s ease forwards;
+}
+
+.animate-pulse {
+  animation: pulse 3s infinite ease-in-out;
+}
+
+.animate-float {
+  animation: float 5s infinite ease-in-out;
+}
+
+.animate-rotate {
+  animation: rotate 12s linear infinite;
+}
+
+.animate-glowing {
+  animation: glowingBorder 3s infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
 }
 
 .delay-200 {
   animation-delay: 0.2s;
 }
 
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
 .delay-400 {
   animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
 }
 
 .delay-600 {
   animation-delay: 0.6s;
 }
 
+.delay-700 {
+  animation-delay: 0.7s;
+}
+
+.delay-800 {
+  animation-delay: 0.8s;
+}
+
+/* Gradientes e fundos */
 .hero-gradient {
-  background: linear-gradient(135deg, #000000 0%, #191100 80%, #382800 100%);
+  background: linear-gradient(135deg, #000000 0%, #191100 60%, #382800 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-gradient::before {
+  content: '';
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  top: -25%;
+  left: -25%;
+  background: radial-gradient(circle, rgba(255, 196, 0, 0.15) 0%, transparent 70%);
+  animation: rotate 60s linear infinite;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 14px 60px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Estilização da Logo */
+.logo-container {
+  position: relative;
+  display: inline-block;
 }
 
 .logo-underline {
@@ -46,8 +228,15 @@
   left: 0;
   right: 0;
   background: linear-gradient(to right, #FFC400 0%, #FFC400 70%, #E50914 70%, #E50914 100%);
+  transition: all 0.3s ease;
 }
 
+.logo-container:hover .logo-underline::after {
+  height: 5px;
+  box-shadow: 0 0 10px rgba(255, 196, 0, 0.7);
+}
+
+/* Efeitos de hover */
 .hover-underline {
   position: relative;
 }
@@ -60,11 +249,29 @@
   bottom: -2px;
   left: 0;
   background-color: #FFC400;
-  transition: width 0.3s ease;
+  transition: width 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hover-underline:hover::after {
   width: 100%;
+  box-shadow: 0 0 8px rgba(255, 196, 0, 0.7);
+}
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 15px rgba(255, 196, 0, 0.7);
 }
 
 :root {
