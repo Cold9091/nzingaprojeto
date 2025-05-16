@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import logoSvg from "@/assets/logo.svg";
 
 export default function Header() {
@@ -84,7 +85,7 @@ export default function Header() {
           </Link>
           
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-10">
+          <nav className="hidden lg:flex items-center space-x-8">
             <button 
               onClick={() => handleNavigation("hero")} 
               className="text-white hover-underline font-medium transition-all duration-300 hover:text-[#FFC400]"
@@ -109,6 +110,7 @@ export default function Header() {
             >
               Sobre
             </button>
+            <ThemeToggle />
             <Button 
               onClick={() => handleNavigation("contacto")} 
               className="bg-[#FFC400] text-black hover:bg-[#FFC400]/90 shadow-md hover:shadow-[#FFC400]/20 hover:shadow-lg font-medium rounded-md px-6 py-2.5 transition-all duration-300 hover:translate-y-[-2px]"

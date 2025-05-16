@@ -275,6 +275,7 @@
 }
 
 :root {
+  /* Variáveis base do tema claro */
   --background: 0 0% 100%;
   --foreground: 20 14.3% 4.1%;
   --muted: 60 4.8% 95.9%;
@@ -295,9 +296,25 @@
   --destructive-foreground: 60 9.1% 97.8%;
   --ring: 45 100% 50%;
   --radius: 0.5rem;
+  
+  /* Variáveis específicas Nzinga */
+  --nzinga-yellow: #FFC400;
+  --nzinga-yellow-light: #FFD133;
+  --nzinga-yellow-dark: #E6B000;
+  --nzinga-text: #1A1A1A;
+  --nzinga-text-light: #666666;
+  --nzinga-background: #FFFFFF;
+  --nzinga-card-bg: #FFFFFF;
+  --nzinga-card-border: #E6E6E6;
+  --nzinga-accent: #E50914;
+  --nzinga-hero-gradient-start: #000000;
+  --nzinga-hero-gradient-end: #382800;
+  --nzinga-gray-light: #F5F5F5;
+  --nzinga-gray: #666666;
 }
 
 .dark {
+  /* Variáveis base do tema escuro */
   --background: 0 0% 0%;
   --foreground: 0 0% 98%;
   --muted: 0 0% 15%;
@@ -318,6 +335,21 @@
   --destructive-foreground: 0 0% 98%;
   --ring: 45 100% 50%;
   --radius: 0.5rem;
+  
+  /* Variáveis específicas Nzinga - Tema escuro */
+  --nzinga-yellow: #FFC400;
+  --nzinga-yellow-light: #FFD133;
+  --nzinga-yellow-dark: #E6B000;
+  --nzinga-text: #E6E6E6;
+  --nzinga-text-light: #B3B3B3;
+  --nzinga-background: #121212;
+  --nzinga-card-bg: #262626;
+  --nzinga-card-border: #333333;
+  --nzinga-accent: #E50914;
+  --nzinga-hero-gradient-start: #000000;
+  --nzinga-hero-gradient-end: #1E1400;
+  --nzinga-gray-light: #333333;
+  --nzinga-gray: #999999;
 }
 
 /* Cursor personalizado */
