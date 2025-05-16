@@ -1,4 +1,4 @@
-import logoSvg from "@/assets/logo.svg";
+//import logoSvg from "@/assets/logo.svg";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
 
@@ -145,7 +145,7 @@ export default function Footer() {
           <div className={`lg:col-span-1 transition-all duration-700 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <div className="mb-6">
               <img 
-                src={logoSvg} 
+                src="/images/nzinga-logo.png" 
                 alt="Nzinga Logo" 
                 className="h-12 w-auto mb-4"
               />

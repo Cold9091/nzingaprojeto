@@ -77,7 +77,7 @@ export default function Header() {
             <a className="logo-container group">
               <div className="flex items-center">
                 <img 
-                  src={logoSvg} 
+                  src="/images/nzinga-logo.png" 
                   alt="Nzinga Logo" 
                   className="h-12 w-auto transition-all duration-300 group-hover:scale-105"
                 />
