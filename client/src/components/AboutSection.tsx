@@ -114,10 +114,10 @@ export default function AboutSection() {
     <section 
       id="sobre" 
       ref={sectionRef}
-      className="py-28 relative bg-white overflow-hidden"
+      className="py-28 relative bg-white dark:bg-gray-900 overflow-hidden transition-colors duration-300"
     >
       {/* Elementos decorativos */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gray-50 transform skew-x-12 -mr-32 opacity-70 z-0 overflow-hidden"></div>
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-gray-50 dark:bg-gray-800 transform skew-x-12 -mr-32 opacity-70 z-0 overflow-hidden transition-colors duration-300"></div>
       <div className="absolute inset-0 overflow-hidden z-0">
         <div className="absolute -left-40 bottom-20 w-80 h-80 bg-[#FFC400] opacity-[0.03] rounded-full"></div>
         <div className="absolute right-60 top-20 w-40 h-40 bg-[#FFC400] opacity-[0.05] rounded-full"></div>
@@ -171,7 +171,7 @@ export default function AboutSection() {
               <div className="inline-block">
                 <span className="text-[#FFC400] font-semibold uppercase tracking-wider text-sm">Conheça nossa agência</span>
               </div>
-              <h2 className="text-black font-bold text-4xl md:text-5xl mt-4 mb-6 leading-tight">
+              <h2 className="text-black dark:text-white font-bold text-4xl md:text-5xl mt-4 mb-6 leading-tight transition-colors duration-300">
                 Uma agência com DNA africano e visão global
               </h2>
               <div className="w-24 h-1 bg-[#FFC400]"></div>
@@ -179,14 +179,14 @@ export default function AboutSection() {
             
             {/* Tabs de navegação */}
             <div className="mt-8 mb-6">
-              <div className="flex flex-wrap border-b border-gray-200 mb-6">
+              <div className="flex flex-wrap border-b border-gray-200 dark:border-gray-700 mb-6 transition-colors duration-300">
                 {tabs.map((tab, index) => (
                   <button 
                     key={index} 
                     className={`px-4 py-2 font-medium text-sm md:text-base transition-all duration-300 ${
                       activeTab === index 
                         ? 'text-[#FFC400] border-b-2 border-[#FFC400]' 
-                        : 'text-gray-500 hover:text-gray-800'
+                        : 'text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
                     }`}
                     onClick={() => setActiveTab(index)}
                   >
