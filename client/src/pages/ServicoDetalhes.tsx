@@ -692,20 +692,20 @@ export default function ServicoDetalhes() {
       {/* Descrição detalhada */}
       <section 
         ref={sectionRefs.descricao}
-        className="py-20 bg-white"
+        className="py-20 bg-white dark:bg-gray-900"
       >
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-16">
             <div className="lg:w-2/3">
               <div className={`mb-8 transition-all duration-1000 transform ${isInView.descricao ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 relative">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8 relative">
                   Sobre este serviço
                   <span className="absolute bottom-0 left-0 w-16 h-1 bg-[#FFC400] -mb-3"></span>
                 </h2>
                 
                 <div className="space-y-6">
                   {servico.descricaoCompleta.map((paragrafo, idx) => (
-                    <p key={idx} className={`text-gray-700 leading-relaxed text-lg transition-all duration-1000 delay-${(idx + 1) * 100} transform ${isInView.descricao ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+                    <p key={idx} className={`text-gray-700 dark:text-gray-300 leading-relaxed text-lg transition-all duration-1000 delay-${(idx + 1) * 100} transform ${isInView.descricao ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                       {paragrafo}
                     </p>
                   ))}
@@ -806,7 +806,7 @@ export default function ServicoDetalhes() {
       {/* Projetos relacionados */}
       <section 
         ref={sectionRefs.projetos}
-        className="py-20 bg-white"
+        className="py-20 bg-white dark:bg-gray-900"
       >
         <div className="container mx-auto px-4 lg:px-8">
           <div className={`text-center mb-16 transition-all duration-1000 transform ${isInView.projetos ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
