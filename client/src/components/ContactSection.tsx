@@ -218,7 +218,7 @@ export default function ContactSection() {
     <section 
       id="contacto" 
       ref={sectionRef}
-      className="py-28 relative bg-gradient-to-b from-gray-900 to-black overflow-hidden"
+      className="py-28 relative bg-gradient-to-b from-gray-800 to-gray-900 dark:from-gray-900 dark:to-black overflow-hidden transition-colors duration-300"
     >
       {/* Elementos decorativos */}
       <div className="absolute inset-0 opacity-30">
