@@ -64,7 +64,9 @@ export default function Header() {
 
   // Classes dinâmicas do header
   const headerClasses = `fixed top-0 left-0 w-full z-50 transition-all duration-500 
-                        ${scrollPosition > 50 ? 'py-2 glass-dark shadow-lg' : 'py-4 bg-transparent'} 
+                        ${scrollPosition > 50 
+                          ? 'py-2 shadow-lg dark:bg-black/70 bg-white/70 backdrop-blur-md' 
+                          : 'py-4 bg-transparent'} 
                         ${isVisible ? 'translate-y-0' : '-translate-y-full'}`;
 
   return (
@@ -88,25 +90,25 @@ export default function Header() {
           <nav className="hidden lg:flex items-center space-x-8">
             <button 
               onClick={() => handleNavigation("hero")} 
-              className="text-white hover-underline font-medium transition-all duration-300 hover:text-[#FFC400]"
+              className="text-black dark:text-white hover-underline font-medium transition-all duration-300 hover:text-[#FFC400]"
             >
               Home
             </button>
             <button 
               onClick={() => handleNavigation("servicos")} 
-              className="text-white hover-underline font-medium transition-all duration-300 hover:text-[#FFC400]"
+              className="text-black dark:text-white hover-underline font-medium transition-all duration-300 hover:text-[#FFC400]"
             >
               Serviços
             </button>
             <button 
               onClick={() => handleNavigation("portfolio")} 
-              className="text-white hover-underline font-medium transition-all duration-300 hover:text-[#FFC400]"
+              className="text-black dark:text-white hover-underline font-medium transition-all duration-300 hover:text-[#FFC400]"
             >
               Portfólio
             </button>
             <button 
               onClick={() => handleNavigation("sobre")} 
-              className="text-white hover-underline font-medium transition-all duration-300 hover:text-[#FFC400]"
+              className="text-black dark:text-white hover-underline font-medium transition-all duration-300 hover:text-[#FFC400]"
             >
               Sobre
             </button>
@@ -119,47 +121,50 @@ export default function Header() {
             </Button>
           </nav>
           
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden text-white text-2xl focus:outline-none z-50 relative"
-            aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu"}
-          >
-            <div className={`transition-all duration-300 ${mobileMenuOpen ? 'rotate-90 scale-110' : ''}`}>
-              {mobileMenuOpen ? (
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="animate-pulse"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-              ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-              )}
-            </div>
-          </button>
+          {/* Mobile Menu Controls */}
+          <div className="lg:hidden flex items-center space-x-4">
+            <ThemeToggle />
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="text-black dark:text-white text-2xl focus:outline-none z-50 relative"
+              aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+            >
+              <div className={`transition-all duration-300 ${mobileMenuOpen ? 'rotate-90 scale-110' : ''}`}>
+                {mobileMenuOpen ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="animate-pulse"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                )}
+              </div>
+            </button>
+          </div>
         </div>
       </div>
       
-      {/* Mobile Navigation - usando glassmorphism */}
-      <div className={`lg:hidden glass-dark fixed inset-0 pt-24 transition-all duration-500 transform ${mobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-[-100%] opacity-0'}`}>
+      {/* Mobile Navigation - com suporte a tema claro/escuro */}
+      <div className={`lg:hidden fixed inset-0 pt-24 transition-all duration-500 transform backdrop-blur-lg bg-white/90 dark:bg-black/90 ${mobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-[-100%] opacity-0'}`}>
         <div className="container mx-auto px-4 flex flex-col space-y-8">
           <button 
             onClick={() => handleNavigation("hero")} 
-            className="text-white text-xl py-4 font-medium border-b border-gray-700 hover:pl-2 transition-all duration-300 hover:text-[#FFC400]"
+            className="text-black dark:text-white text-xl py-4 font-medium border-b border-gray-200 dark:border-gray-700 hover:pl-2 transition-all duration-300 hover:text-[#FFC400]"
           >
             Home
           </button>
           <button 
             onClick={() => handleNavigation("servicos")} 
-            className="text-white text-xl py-4 font-medium border-b border-gray-700 hover:pl-2 transition-all duration-300 hover:text-[#FFC400]"
+            className="text-black dark:text-white text-xl py-4 font-medium border-b border-gray-200 dark:border-gray-700 hover:pl-2 transition-all duration-300 hover:text-[#FFC400]"
           >
             Serviços
           </button>
           <button 
             onClick={() => handleNavigation("portfolio")} 
-            className="text-white text-xl py-4 font-medium border-b border-gray-700 hover:pl-2 transition-all duration-300 hover:text-[#FFC400]"
+            className="text-black dark:text-white text-xl py-4 font-medium border-b border-gray-200 dark:border-gray-700 hover:pl-2 transition-all duration-300 hover:text-[#FFC400]"
           >
             Portfólio
           </button>
           <button 
             onClick={() => handleNavigation("sobre")} 
-            className="text-white text-xl py-4 font-medium border-b border-gray-700 hover:pl-2 transition-all duration-300 hover:text-[#FFC400]"
+            className="text-black dark:text-white text-xl py-4 font-medium border-b border-gray-200 dark:border-gray-700 hover:pl-2 transition-all duration-300 hover:text-[#FFC400]"
           >
             Sobre
           </button>

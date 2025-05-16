@@ -53,7 +53,7 @@ export default function HeroSection() {
     <section 
       id="hero" 
       ref={heroRef}
-      className="hero-gradient min-h-screen relative flex items-center overflow-hidden"
+      className="min-h-screen relative flex items-center overflow-hidden bg-gradient-to-br from-slate-100 to-white dark:from-black dark:via-gray-900 dark:to-black"
       style={{
         backgroundPosition: `${50 + (mousePosition.x - 0.5) * 10}% ${50 + (mousePosition.y - 0.5) * 10}%`
       }}
@@ -76,8 +76,8 @@ export default function HeroSection() {
         ))}
       </div>
       
-      {/* Overlay gradiente para melhorar contraste */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent z-10"></div>
+      {/* Overlay gradiente para melhorar contraste - adaptado para tema escuro/claro */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent dark:from-black/60 dark:to-transparent z-10"></div>
       
       {/* Conteúdo principal */}
       <div className="container mx-auto px-4 lg:px-8 py-24 pt-32 relative z-20">
@@ -89,7 +89,7 @@ export default function HeroSection() {
           </div>
           
           <div className="overflow-hidden">
-            <h1 className={`text-white font-extrabold text-5xl md:text-6xl lg:text-7xl leading-tight animate-fade-in-up ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-700`}>
+            <h1 className={`text-black dark:text-white font-extrabold text-5xl md:text-6xl lg:text-7xl leading-tight animate-fade-in-up ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-700`}>
               <span className="block">Transformamos</span>
               <span className="block">sua marca em uma</span>
               <span className="block">
@@ -99,7 +99,7 @@ export default function HeroSection() {
           </div>
           
           <div className="overflow-hidden mt-8">
-            <p className="text-white/80 text-lg md:text-xl max-w-2xl animate-fade-in-up delay-300 leading-relaxed backdrop-blur-sm bg-black/5 p-4 rounded-lg glass-dark inline-block">
+            <p className="text-gray-800 dark:text-white/80 text-lg md:text-xl max-w-2xl animate-fade-in-up delay-300 leading-relaxed backdrop-blur-sm bg-white/20 dark:bg-black/20 p-4 rounded-lg border border-gray-200/30 dark:border-white/10 inline-block transition-colors duration-300">
               Combinamos <span className="text-[#FFC400] font-semibold">criatividade</span>, <span className="text-[#FFC400] font-semibold">estratégia</span> e <span className="text-[#FFC400] font-semibold">tecnologia</span> para elevar a comunicação da sua marca a outro patamar no mercado global.
             </p>
           </div>
@@ -133,7 +133,7 @@ export default function HeroSection() {
             <Button
               onClick={() => document.getElementById("contacto")?.scrollIntoView({ behavior: 'smooth' })}
               variant="outline"
-              className="border-white/30 text-white py-6 px-8 font-medium hover:bg-white/10 backdrop-blur transition-all duration-300 group rounded-md glass mt-2 sm:mt-0"
+              className="border-gray-400/50 dark:border-white/30 text-gray-800 dark:text-white py-6 px-8 font-medium hover:bg-gray-200/20 dark:hover:bg-white/10 backdrop-blur transition-all duration-300 group rounded-md mt-2 sm:mt-0"
             >
               Fale Conosco
               <svg 
