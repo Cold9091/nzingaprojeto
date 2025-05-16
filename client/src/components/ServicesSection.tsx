@@ -1,20 +1,23 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
+import { useLocation } from "wouter";
 
 interface ServiceCardProps {
   icon: React.ReactNode;
   title: string;
   description: string;
+  slug: string;
   index: number;
   isHovered: boolean;
   onHover: (index: number) => void;
   onLeave: () => void;
 }
 
-function ServiceCard({ icon, title, description, index, isHovered, onHover, onLeave }: ServiceCardProps) {
+function ServiceCard({ icon, title, description, slug, index, isHovered, onHover, onLeave }: ServiceCardProps) {
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
+  const [, navigate] = useLocation();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -39,6 +42,10 @@ function ServiceCard({ icon, title, description, index, isHovered, onHover, onLe
     };
   }, [index]);
 
+  const handleCardClick = () => {
+    navigate(`/servico/${slug}`);
+  };
+
   return (
     <div 
       ref={cardRef} 
@@ -51,11 +58,12 @@ function ServiceCard({ icon, title, description, index, isHovered, onHover, onLe
       onMouseLeave={onLeave}
     >
       <Card 
-        className={`h-full bg-gradient-to-br from-white to-gray-50 shadow-xl rounded-xl overflow-hidden glass-card ${
+        className={`h-full bg-gradient-to-br from-white to-gray-50 shadow-xl rounded-xl overflow-hidden glass-card cursor-pointer ${
           isHovered 
             ? 'scale-105 shadow-2xl border-[#FFC400]' 
             : 'scale-100 border-transparent'
         } transition-all duration-500`}
+        onClick={handleCardClick}
       >
         <CardContent className="p-8 relative h-full">
           {/* Círculo decorativo com animação de pulso */}
@@ -88,8 +96,8 @@ function ServiceCard({ icon, title, description, index, isHovered, onHover, onLe
           <div className={`transition-all duration-300 flex items-center mt-auto ${
             isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
-            <a href="#contacto" className="text-[#FFC400] font-semibold flex items-center hover:underline transition-all">
-              Saiba mais
+            <span className="text-[#FFC400] font-semibold flex items-center">
+              Ver detalhes
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 width="18" 
@@ -105,7 +113,7 @@ function ServiceCard({ icon, title, description, index, isHovered, onHover, onLe
                 <path d="M5 12h14" />
                 <path d="m12 5 7 7-7 7" />
               </svg>
-            </a>
+            </span>
           </div>
         </CardContent>
       </Card>
@@ -150,6 +158,7 @@ export default function ServicesSection() {
   
   const services = [
     {
+      slug: "estrategia-de-marca",
       icon: (
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
@@ -170,6 +179,7 @@ export default function ServicesSection() {
       description: "Desenvolvemos identidades de marca autênticas e poderosas que conectam sua empresa ao seu público-alvo e diferenciam você da concorrência. Analisamos seu mercado, concorrentes e valores para criar posicionamentos estratégicos."
     },
     {
+      slug: "design-grafico",
       icon: (
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
@@ -198,6 +208,7 @@ export default function ServicesSection() {
       description: "Nossa equipe de designers criativos desenvolve materiais visuais que comunicam a essência da sua marca com impacto e elegância. Desde logotipos até materiais impressos e digitais completos que garantem consistência em todos os pontos de contato."
     },
     {
+      slug: "marketing-digital",
       icon: (
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
@@ -219,6 +230,7 @@ export default function ServicesSection() {
       description: "Transformamos sua presença online com estratégias digitais que geram resultados mensuráveis e conversões efetivas. Utilizamos análise de dados para otimizar campanhas em redes sociais, SEO, email marketing e publicidade paga para atingir seus objetivos."
     },
     {
+      slug: "web-design",
       icon: (
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
@@ -243,10 +255,11 @@ export default function ServicesSection() {
           <path d="M15 15h.01"></path>
         </svg>
       ),
-      title: "Desenvolvimento Web",
+      title: "Web Design",
       description: "Criamos websites e aplicações web que combinam design excepcional com funcionalidade intuitiva. Nossos sites são responsivos, otimizados para SEO e focados em conversão, proporcionando uma experiência de usuário premium para seu público."
     },
     {
+      slug: "gestao-de-conteudo",
       icon: (
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
@@ -270,6 +283,7 @@ export default function ServicesSection() {
       description: "Produzimos conteúdo estratégico que comunica sua mensagem, aumenta seu alcance e estabelece sua autoridade no setor. Nossa abordagem combina pesquisa de palavras-chave, storytelling poderoso e análise de dados para criar conteúdo que engaja e converte."
     },
     {
+      slug: "consultoria-estrategica",
       icon: (
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
@@ -329,6 +343,7 @@ export default function ServicesSection() {
               icon={service.icon}
               title={service.title}
               description={service.description}
+              slug={service.slug}
               isHovered={hoveredIndex === index}
               onHover={handleHover}
               onLeave={handleLeave}

@@ -320,9 +320,65 @@
   --radius: 0.5rem;
 }
 
+/* Cursor personalizado */
+.custom-cursor {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #FFC400;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+
+.custom-cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background-color: #FFC400;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: all 0.1s ease;
+  z-index: 10000;
+}
+
+.clickable {
+  cursor: none;
+}
+
+.custom-cursor.hover {
+  transform: translate(-50%, -50%) scale(1.5);
+  background-color: rgba(255, 196, 0, 0.1);
+  border-color: rgba(255, 196, 0, 0.5);
+}
+
+.custom-cursor.active {
+  transform: translate(-50%, -50%) scale(0.8);
+  background-color: rgba(255, 196, 0, 0.2);
+}
+
+.custom-cursor-dot.hover {
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+.custom-cursor-dot.active {
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+@media (max-width: 768px) {
+  .custom-cursor, .custom-cursor-dot {
+    display: none;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
+    cursor: none;
   }
 
   body {
@@ -333,5 +389,19 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
+  }
+  
+  a, button, input, textarea, select, [role="button"] {
+    cursor: none !important;
+  }
+  
+  @media (max-width: 768px) {
+    * {
+      cursor: auto;
+    }
+    
+    a, button, input, textarea, select, [role="button"] {
+      cursor: pointer !important;
+    }
   }
 }
