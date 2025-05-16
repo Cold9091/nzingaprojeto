@@ -73,14 +73,12 @@ export default function Header() {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link href="/" className="logo-container group">
-            <div className="flex items-center">
-              <img 
-                src="/images/nzinga-logo.png" 
-                alt="Nzinga Logo" 
-                className="h-12 w-auto transition-all duration-300 group-hover:scale-105"
-              />
-            </div>
+          <Link href="/" className="logo-container group flex items-center">
+            <img 
+              src="/images/nzinga-logo.png" 
+              alt="Nzinga Logo" 
+              className="h-10 md:h-12 w-auto transition-all duration-300 group-hover:scale-105"
+            />
           </Link>
           
           {/* Desktop Navigation */}

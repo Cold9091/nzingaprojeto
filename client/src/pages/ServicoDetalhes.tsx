@@ -605,8 +605,8 @@ export default function ServicoDetalhes() {
       <>
         <Header />
         <div className="min-h-screen flex flex-col items-center justify-center p-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Serviço não encontrado</h1>
-          <p className="text-gray-600 text-center mb-8">O serviço que você está procurando não foi encontrado.</p>
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">Serviço não encontrado</h1>
+          <p className="text-gray-600 dark:text-gray-400 text-center mb-8">O serviço que você está procurando não foi encontrado.</p>
           <Link href="/">
             <a className="bg-[#FFC400] text-black px-6 py-3 rounded-md hover:bg-[#FFC400]/90 transition-all duration-300">
               Voltar para a página inicial
