@@ -750,7 +750,7 @@ export default function ServicoDetalhes() {
                   {servico.icone}
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Por que escolher este serviço?</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Por que escolher este serviço?</h3>
                 
                 <ul className="space-y-4">
                   {servico.beneficios.map((beneficio, idx) => (
@@ -758,7 +758,7 @@ export default function ServicoDetalhes() {
                       <svg className="w-5 h-5 text-[#FFC400] mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                       </svg>
-                      <span className="text-gray-700">{beneficio}</span>
+                      <span className="text-gray-700 dark:text-gray-300">{beneficio}</span>
                     </li>
                   ))}
                 </ul>
@@ -771,11 +771,11 @@ export default function ServicoDetalhes() {
       {/* Processo de trabalho */}
       <section 
         ref={sectionRefs.processo}
-        className="py-20 bg-gray-50"
+        className="py-20 bg-gray-50 dark:bg-gray-800"
       >
         <div className="container mx-auto px-4 lg:px-8">
           <div className={`text-center mb-16 transition-all duration-1000 transform ${isInView.processo ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Nosso Processo</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Nosso Processo</h2>
             <div className="w-24 h-1 bg-[#FFC400] mx-auto"></div>
             <p className="text-gray-700 max-w-2xl mx-auto mt-6 text-lg">
               Conheça nossa metodologia estruturada para entrega de resultados excepcionais
@@ -786,7 +786,7 @@ export default function ServicoDetalhes() {
             {servico.etapas.map((etapa, idx) => (
               <div 
                 key={idx}
-                className={`bg-white p-8 rounded-xl shadow-lg border border-gray-100 relative overflow-hidden transition-all duration-1000 delay-${idx * 100} transform ${isInView.processo ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'} hover:shadow-xl hover:translate-y-[-5px]`}
+                className={`bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 relative overflow-hidden transition-all duration-1000 delay-${idx * 100} transform ${isInView.processo ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'} hover:shadow-xl hover:translate-y-[-5px]`}
               >
                 {/* Número da etapa */}
                 <div className="absolute -right-8 -top-8 w-32 h-32 flex items-center justify-center">
@@ -794,8 +794,8 @@ export default function ServicoDetalhes() {
                 </div>
                 
                 <div className="relative z-10">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">{etapa.titulo}</h3>
-                  <p className="text-gray-700">{etapa.descricao}</p>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">{etapa.titulo}</h3>
+                  <p className="text-gray-700 dark:text-gray-300">{etapa.descricao}</p>
                 </div>
               </div>
             ))}
@@ -810,9 +810,9 @@ export default function ServicoDetalhes() {
       >
         <div className="container mx-auto px-4 lg:px-8">
           <div className={`text-center mb-16 transition-all duration-1000 transform ${isInView.projetos ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Projetos Relacionados</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Projetos Relacionados</h2>
             <div className="w-24 h-1 bg-[#FFC400] mx-auto"></div>
-            <p className="text-gray-700 max-w-2xl mx-auto mt-6 text-lg">
+            <p className="text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mt-6 text-lg">
               Conheça alguns dos nossos trabalhos recentes nesta área
             </p>
           </div>
@@ -847,7 +847,7 @@ export default function ServicoDetalhes() {
           
           <div className={`text-center mt-16 transition-all duration-1000 delay-500 transform ${isInView.projetos ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <Link href="/#portfolio">
-              <a className="bg-transparent border border-gray-300 text-gray-800 hover:border-[#FFC400] hover:text-[#FFC400] py-4 px-6 rounded-md transition-all duration-300 inline-flex items-center group">
+              <a className="bg-transparent border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 hover:border-[#FFC400] hover:text-[#FFC400] py-4 px-6 rounded-md transition-all duration-300 inline-flex items-center group">
                 Ver todos os projetos
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
