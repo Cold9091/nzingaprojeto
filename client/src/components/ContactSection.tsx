@@ -12,8 +12,18 @@ interface ContactInfo {
 }
 
 function ContactInfoItem({ icon, title, details }: ContactInfo) {
+  // Verificar se é o contato de WhatsApp
+  const isWhatsApp = title === "WhatsApp";
+  const whatsappNumber = isWhatsApp ? details[0].replace(/\D/g, '') : '';
+  
+  const handleWhatsAppClick = () => {
+    if (isWhatsApp) {
+      window.open(`https://wa.me/${whatsappNumber}`, '_blank');
+    }
+  };
+  
   return (
-    <div className="hover-lift group">
+    <div className={`hover-lift group ${isWhatsApp ? 'cursor-pointer' : ''}`} onClick={isWhatsApp ? handleWhatsAppClick : undefined}>
       <div className="flex items-center mb-4">
         <div className="w-12 h-12 bg-gradient-to-br from-[#FFC400]/10 to-[#FFC400]/5 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
           <div className="group-hover:rotate-12 transition-transform duration-300">
@@ -24,7 +34,7 @@ function ContactInfoItem({ icon, title, details }: ContactInfo) {
       </div>
       <div className="text-gray-400 pl-14 space-y-1">
         {details.map((detail, index) => (
-          <p key={index} className="group-hover:translate-x-1 transition-transform duration-300">{detail}</p>
+          <p key={index} className={`group-hover:translate-x-1 transition-transform duration-300 ${isWhatsApp && index === 1 ? 'text-[#FFC400]/80 text-sm italic' : ''}`}>{detail}</p>
         ))}
       </div>
     </div>
@@ -99,12 +109,21 @@ export default function ContactSection() {
     setIsSubmitting(true);
 
     try {
+      // Enviar para o servidor
       await apiRequest("POST", "/api/contact", formData);
+      
+      // Preparar mensagem para WhatsApp
+      const whatsappNumber = "244958039208"; // Número sem formatação
+      const mensagem = `*Nova Mensagem do Site*\n\n*Nome:* ${formData.name}\n*Email:* ${formData.email}\n*Assunto:* ${formData.subject}\n\n*Mensagem:*\n${formData.message}`;
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mensagem)}`;
+      
+      // Abrir WhatsApp em nova janela
+      window.open(whatsappUrl, '_blank');
       
       // Show success toast
       toast({
         title: "Mensagem enviada!",
-        description: "Obrigado pelo seu contato. Responderemos em breve.",
+        description: "Obrigado pelo seu contato. Você será redirecionado para o WhatsApp.",
       });
       
       // Animate success state
@@ -189,8 +208,8 @@ export default function ContactSection() {
           <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
         </svg>
       ),
-      title: "Telefone",
-      details: ["+244 923 456 789", "+244 912 345 678"]
+      title: "WhatsApp",
+      details: ["+244 958 039 208", "Clique para enviar mensagem"]
     },
     {
       icon: (
