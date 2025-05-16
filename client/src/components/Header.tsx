@@ -139,7 +139,7 @@ export default function Header() {
       </div>
       
       {/* Mobile Navigation - com suporte a tema claro/escuro */}
-      <div className={`lg:hidden fixed inset-0 pt-24 transition-all duration-500 transform backdrop-blur-lg bg-white/90 dark:bg-black/90 ${mobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-[-100%] opacity-0'}`}>
+      <div className={`lg:hidden fixed inset-0 pt-24 transition-all duration-500 transform bg-white dark:bg-gray-900 ${mobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-[-100%] opacity-0'}`}>
         <div className="container mx-auto px-4 flex flex-col space-y-8">
           <button 
             onClick={() => handleNavigation("hero")} 
