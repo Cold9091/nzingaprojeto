@@ -9,7 +9,7 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="w-10 h-10 rounded-full transition-all duration-300 hover:bg-black/10 dark:hover:bg-white/10 shadow-md dark:shadow-white/5 active:scale-95"
+      className="w-10 h-10 rounded-full transition-all duration-300 hover:bg-black/10 dark:hover:bg-white/10 shadow-lg dark:shadow-white/10 active:scale-95 bg-white/30 dark:bg-black/30 backdrop-blur-sm"
       aria-label="Alternar tema"
     >
       {theme === "light" ? (

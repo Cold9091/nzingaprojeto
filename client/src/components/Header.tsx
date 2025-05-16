@@ -117,11 +117,13 @@ export default function Header() {
           </nav>
           
           {/* Mobile Menu Controls */}
-          <div className="lg:hidden flex items-center space-x-4">
-            <ThemeToggle />
+          <div className="lg:hidden flex items-center space-x-5">
+            <div className="transform scale-110">
+              <ThemeToggle />
+            </div>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-black dark:text-white text-2xl focus:outline-none z-50 relative"
+              className="text-black dark:text-white text-2xl focus:outline-none z-50 relative ml-1"
               aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu"}
             >
               <div className={`transition-all duration-300 ${mobileMenuOpen ? 'rotate-90 scale-110' : ''}`}>
