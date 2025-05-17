@@ -172,54 +172,55 @@ export default function Header() {
         </div>
       </div>
       
-      {/* Mobile Navigation - Implementação melhorada */}
-      <div 
-        ref={mobileMenuRef}
-        className={`lg:hidden fixed inset-0 pt-24 transition-all duration-500 transform ${
-          mobileMenuOpen ? 'translate-y-0 opacity-100 pointer-events-auto' : 'translate-y-[-100%] opacity-0 pointer-events-none'
-        }`}
-      >
-        {/* Overlay de fundo com opacidade sólida */}
-        <div className="absolute inset-0 bg-white dark:bg-gray-900 shadow-lg"></div>
-        
-        {/* Conteúdo do menu */}
-        <div className="container mx-auto px-4 flex flex-col space-y-8 relative z-10">
-          <button 
-            onClick={() => handleNavigation("hero")} 
-            className="text-black dark:text-white text-xl py-4 font-medium border-b border-gray-200 dark:border-gray-700 hover:pl-2 transition-all duration-300 hover:text-[#FFC400]"
-          >
-            Home
-          </button>
-          <button 
-            onClick={() => handleNavigation("servicos")} 
-            className="text-black dark:text-white text-xl py-4 font-medium border-b border-gray-200 dark:border-gray-700 hover:pl-2 transition-all duration-300 hover:text-[#FFC400]"
-          >
-            Serviços
-          </button>
-          <button 
-            onClick={() => handleNavigation("portfolio")} 
-            className="text-black dark:text-white text-xl py-4 font-medium border-b border-gray-200 dark:border-gray-700 hover:pl-2 transition-all duration-300 hover:text-[#FFC400]"
-          >
-            Portfólio
-          </button>
-          <button 
-            onClick={() => handleNavigation("sobre")} 
-            className="text-black dark:text-white text-xl py-4 font-medium border-b border-gray-200 dark:border-gray-700 hover:pl-2 transition-all duration-300 hover:text-[#FFC400]"
-          >
-            Sobre
-          </button>
-          <Button 
-            onClick={() => handleNavigation("contacto")} 
-            className="bg-[#FFC400] text-black hover:bg-[#FFC400]/90 py-6 mt-4 text-lg"
-          >
-            Contacto
-          </Button>
+      {/* Mobile Navigation - Nova implementação para resolver o problema do fundo transparente */}
+      {mobileMenuOpen && (
+        <div 
+          ref={mobileMenuRef}
+          className="lg:hidden fixed inset-0 z-40 overflow-hidden"
+          style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }} // Overlay escuro para bloquear a visibilidade do conteúdo por trás
+        >
+          {/* Menu principal com fundo totalmente sólido */}
+          <div className="fixed inset-0 pt-24 flex flex-col bg-white dark:bg-black">
+            {/* Conteúdo do menu */}
+            <div className="container mx-auto px-4 flex flex-col space-y-8 relative z-30">
+              <button 
+                onClick={() => handleNavigation("hero")} 
+                className="text-black dark:text-white text-xl py-4 font-medium border-b border-gray-200 dark:border-gray-800 hover:pl-2 transition-all duration-300 hover:text-[#FFC400]"
+              >
+                Home
+              </button>
+              <button 
+                onClick={() => handleNavigation("servicos")} 
+                className="text-black dark:text-white text-xl py-4 font-medium border-b border-gray-200 dark:border-gray-800 hover:pl-2 transition-all duration-300 hover:text-[#FFC400]"
+              >
+                Serviços
+              </button>
+              <button 
+                onClick={() => handleNavigation("portfolio")} 
+                className="text-black dark:text-white text-xl py-4 font-medium border-b border-gray-200 dark:border-gray-800 hover:pl-2 transition-all duration-300 hover:text-[#FFC400]"
+              >
+                Portfólio
+              </button>
+              <button 
+                onClick={() => handleNavigation("sobre")} 
+                className="text-black dark:text-white text-xl py-4 font-medium border-b border-gray-200 dark:border-gray-800 hover:pl-2 transition-all duration-300 hover:text-[#FFC400]"
+              >
+                Sobre
+              </button>
+              <Button 
+                onClick={() => handleNavigation("contacto")} 
+                className="bg-[#FFC400] text-black hover:bg-[#FFC400]/90 py-6 mt-4 text-lg"
+              >
+                Contacto
+              </Button>
+            </div>
+            
+            {/* Elementos decorativos sobrepostos ao menu sólido */}
+            <div className="absolute bottom-10 right-10 w-20 h-20 border border-[#FFC400]/20 rounded-full opacity-30 z-20 animate-spin-slow"></div>
+            <div className="absolute bottom-40 left-10 w-32 h-32 border border-[#FFC400]/10 rounded-full opacity-20 z-20 animate-spin-slow-reverse"></div>
+          </div>
         </div>
-        
-        {/* Elementos decorativos */}
-        <div className="absolute bottom-10 right-10 w-20 h-20 border border-[#FFC400]/20 rounded-full opacity-30 z-20 animate-spin-slow"></div>
-        <div className="absolute bottom-40 left-10 w-32 h-32 border border-[#FFC400]/10 rounded-full opacity-20 z-20 animate-spin-slow-reverse"></div>
-      </div>
+      )}
     </header>
   );
 }
