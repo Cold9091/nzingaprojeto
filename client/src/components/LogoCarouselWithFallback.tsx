@@ -1,74 +1,61 @@
 import { useEffect, useState } from "react";
 
-// Componente para renderizar cada logo individual
-const LogoItem = ({ name, color }: { name: string; color: string }) => {
+// Import company logos
+import unitelLogo from '../assets/image_1747500014834.png';
+import ecoAngolaLogo from '../assets/image_1747500127588.png';
+import centroOpticoLogo from '../assets/image_1747500192220.png';
+import refriangoLogo from '../assets/image_1747500237124.png';
+import bekoLogo from '../assets/image_1747500277811.png';
+
+// Component to render each individual logo
+const LogoItem = ({ image, name }: { image: string; name: string }) => {
   return (
-    <div className="mx-12 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:opacity-80">
+    <div className="mx-12 flex items-center justify-center transition-all duration-300 hover:scale-110">
       <div 
-        className="h-12 md:h-16 flex items-center justify-center p-4 rounded-md"
+        className="h-16 md:h-20 flex items-center justify-center p-4"
         style={{ 
-          minWidth: "150px",
-          background: color,
-          color: getContrastColor(color)
+          minWidth: "180px"
         }}
       >
-        <span className="font-bold text-lg md:text-xl">{name}</span>
+        <img 
+          src={image} 
+          alt={`${name} logo`} 
+          className="h-full object-contain"
+        />
       </div>
     </div>
   );
 };
 
-// Função para determinar se o texto deve ser branco ou preto com base na cor de fundo
-function getContrastColor(bgColor: string): string {
-  // Função simples para cores básicas
-  const colorMap: Record<string, string> = {
-    "#FF0000": "#FFFFFF", // Vermelho - Texto branco
-    "#2B65EC": "#FFFFFF", // Azul - Texto branco
-    "#188038": "#FFFFFF", // Verde - Texto branco
-    "#EA4335": "#FFFFFF", // Vermelho Google - Texto branco
-    "#4285F4": "#FFFFFF", // Azul Google - Texto branco
-    "#FBBC05": "#000000", // Amarelo Google - Texto preto
-    "#34A853": "#FFFFFF", // Verde Google - Texto branco
-    "#FF5733": "#FFFFFF", // Laranja - Texto branco
-    "#C70039": "#FFFFFF", // Vermelho escuro - Texto branco
-    "#00BFFF": "#000000", // Azul claro - Texto preto
-    "#FF007F": "#FFFFFF", // Rosa - Texto branco
-    "#800080": "#FFFFFF", // Roxo - Texto branco
-  };
-  
-  return colorMap[bgColor] || "#FFFFFF";
-}
-
 export default function LogoCarouselWithFallback() {
   const [position, setPosition] = useState(0);
   
-  // Lista de empresas com cores que representam suas identidades visuais
-  const companiesWithColors = [
-    { name: "Unitel", color: "#2B65EC" }, // Azul
-    { name: "Yango", color: "#FF0000" }, // Vermelho
-    { name: "Refriango", color: "#EA4335" }, // Vermelho/Laranja
-    { name: "Centro Óptico", color: "#00BFFF" }, // Azul claro
-    { name: "Beko", color: "#4285F4" }, // Azul
-    { name: "Ecoangola", color: "#188038" } // Verde
+  // List of companies with their logo images
+  const companyLogos = [
+    { name: "Unitel", image: unitelLogo },
+    { name: "Eco Angola", image: ecoAngolaLogo },
+    { name: "Centro Óptico", image: centroOpticoLogo },
+    { name: "Refriango", image: refriangoLogo },
+    { name: "Beko", image: bekoLogo }
   ];
   
-  // Duplicar os logos para criar um efeito infinito
-  const duplicatedLogos = [...companiesWithColors, ...companiesWithColors];
+  // Duplicate logos for infinite effect
+  const duplicatedLogos = [...companyLogos, ...companyLogos];
   
-  // Efeito para animar o carrossel
+  // Effect to animate the carousel
   useEffect(() => {
     const interval = setInterval(() => {
       setPosition((prevPosition) => {
-        // Reset quando todos os logos já passaram
-        if (prevPosition <= -companiesWithColors.length * 250) {
+        // Reset when all logos have passed
+        if (prevPosition <= -companyLogos.length * 250) {
           return 0;
         }
-        return prevPosition - 1; // Movimento gradual para a esquerda
+        return prevPosition - 1; // Gradual movement to the left
       });
-    }, 20); // Velocidade do movimento
+    }, 20); // Speed of movement
     
     return () => clearInterval(interval);
-  }, [companiesWithColors.length]);
+  }, [companyLogos.length]);
   
   return (
     <section className="py-16 bg-gray-50 dark:bg-gray-900 overflow-hidden transition-colors duration-300">
@@ -83,10 +70,10 @@ export default function LogoCarouselWithFallback() {
       </div>
       
       <div className="relative w-full overflow-hidden">
-        {/* Gradiente esquerdo para efeito de fade */}
+        {/* Left gradient for fade effect */}
         <div className="absolute left-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-r from-gray-50 to-transparent dark:from-gray-900"></div>
         
-        {/* Carrossel infinito */}
+        {/* Infinite carousel */}
         <div 
           className="flex items-center py-8 transition-transform duration-1000"
           style={{ transform: `translateX(${position}px)` }}
@@ -95,12 +82,12 @@ export default function LogoCarouselWithFallback() {
             <LogoItem 
               key={`${company.name}-${index}`} 
               name={company.name} 
-              color={company.color}
+              image={company.image}
             />
           ))}
         </div>
         
-        {/* Gradiente direito para efeito de fade */}
+        {/* Right gradient for fade effect */}
         <div className="absolute right-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-l from-gray-50 to-transparent dark:from-gray-900"></div>
       </div>
     </section>
