@@ -1,12 +1,5 @@
 {
-  "version": 2,
   "buildCommand": "npm run build",
-  "installCommand": "npm install",
-  "framework": "vite",
-  "devCommand": "npm run dev",
-  "outputDirectory": "dist",
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/(.*)", "destination": "/" }
-  ]
+  "outputDirectory": "dist/public",
+  "framework": "vite"
 }
