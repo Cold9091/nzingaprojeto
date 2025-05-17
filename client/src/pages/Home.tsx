@@ -60,7 +60,7 @@ export default function Home() {
         <HeroSection />
         <ServicesSection />
         <PortfolioSection />
-        <LogoCarouselWithFallback />
+        <BrandsCarousel />
         <AboutSection />
         <TestimonialSection />
         <FaqSection />
