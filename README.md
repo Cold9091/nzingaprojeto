@@ -1,56 +1,73 @@
-# Nzinga - Comunicação, Imagem e Estratégia
+# Nzinga - Agência de Comunicação e Estratégia
 
-Site institucional moderno e impactante para a agência Nzinga, focado em comunicação e estratégia de marcas.
+## Sobre o Projeto
 
-## Descrição
+Site institucional moderno para a agência Nzinga, desenvolvido com foco em comunicação visual e estratégia de marca, oferecendo uma experiência responsiva e envolvente.
 
-Este projeto é um site institucional para a agência Nzinga, especializada em comunicação, imagem e estratégia de marcas. O site apresenta um design moderno e impactante, com seções para apresentação dos serviços, portfólio, sobre a empresa, depoimentos e contato.
+### Tecnologias Principais
 
-## Tecnologias Utilizadas
+- **Frontend**: React.js, Vite
+- **Estilização**: Tailwind CSS, Componentes shadcn/ui
+- **Linguagem**: TypeScript
+- **Roteamento**: Wouter
+- **Backend**: Express.js (simples para servir a aplicação)
+- **Hospedagem**: Preparado para Vercel
 
-- **Frontend**: React, TypeScript, Vite, TailwindCSS, Shadcn/UI
-- **Backend**: Express.js, Node.js
-- **Estilização**: TailwindCSS, Shadcn/UI
+### Funcionalidades 
 
-## Como Executar Localmente
-
-1. Clone o repositório
-2. Instale as dependências:
-   ```
-   npm install
-   ```
-3. Execute o projeto:
-   ```
-   npm run dev
-   ```
-4. Acesse o site em `http://localhost:5000`
+- Design responsivo para todos os dispositivos
+- Temas claro e escuro
+- Seções interativas (Serviços, Portfólio, Depoimentos)
+- Carrossel de marcas parceiras
+- FAQ interativo
+- Formulário de contato
+- Navegação suave entre seções
+- Efeitos visuais e animações sutis
 
 ## Estrutura do Projeto
 
-- `/client`: Código frontend da aplicação
-  - `/src`: Código fonte do frontend
-    - `/components`: Componentes reutilizáveis
-    - `/pages`: Páginas da aplicação
-    - `/hooks`: Custom hooks
-    - `/lib`: Utilitários e funcionalidades auxiliares
-- `/server`: Código backend da aplicação
-- `/shared`: Esquemas e tipos compartilhados
+```
+.
+├── client/               # Frontend da aplicação
+│   ├── src/              # Código fonte
+│   │   ├── assets/       # Recursos estáticos (imagens, fontes)
+│   │   ├── components/   # Componentes React
+│   │   ├── hooks/        # Custom hooks
+│   │   ├── lib/          # Utilitários e helpers
+│   │   ├── pages/        # Páginas da aplicação
+│   ├── index.html        # Template HTML principal
+│   ├── vite.config.ts    # Configuração do Vite
+├── public/               # Arquivos públicos estáticos
+│   ├── images/           # Imagens públicas
+├── server/               # Servidor Express simples
+├── shared/               # Código compartilhado entre client e server
+├── package.json          # Dependências e scripts
+└── README.md             # Este arquivo
+```
 
-## Implantação na Vercel
+## Executando Localmente
 
-Este projeto está configurado para ser implantado na Vercel. Para implantar:
+1. Clone o repositório
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+3. Execute o projeto em modo de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+4. Acesse `http://localhost:5000` no seu navegador
 
-1. Crie uma conta na [Vercel](https://vercel.com/)
-2. Instale o Vercel CLI: `npm i -g vercel`
-3. Execute `vercel` na raiz do projeto para fazer login e configurar o projeto
-4. Para implantar em produção, execute `vercel --prod`
+## Deployment
 
-### Configuração de Ambiente
+Para instruções detalhadas sobre como fazer o deploy deste projeto no Vercel, consulte o arquivo [VERCEL_DEPLOY.md](./VERCEL_DEPLOY.md).
 
-Certifique-se de configurar as seguintes variáveis de ambiente na Vercel:
+## Recursos Adicionais
 
-- `NODE_ENV`: Ambiente de execução (production, development, etc.)
+- Suporte a SEO incorporado em todas as páginas
+- Otimizado para performance com Lighthouse
+- Interface adaptativa para diferentes tamanhos de tela
 
 ## Licença
 
-Todos os direitos reservados © Nzinga - Comunicação, Imagem e Estratégia.
+Copyright © 2024 Nzinga.
