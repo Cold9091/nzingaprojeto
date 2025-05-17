@@ -2,7 +2,7 @@
 
 ## Sobre o Projeto
 
-Site institucional moderno para a agência Nzinga, desenvolvido com foco em comunicação visual e estratégia de marca, oferecendo uma experiência responsiva e envolvente.
+Site institucional moderno para a agência Nzinga, projetado com foco em comunicação visual e estratégia de marca, oferecendo uma experiência digital responsiva, envolvente e de alto impacto visual. O design foi desenvolvido para refletir a sofisticação e qualidade dos serviços oferecidos pela agência.
 
 ### Tecnologias Principais
 
@@ -11,18 +11,23 @@ Site institucional moderno para a agência Nzinga, desenvolvido com foco em comu
 - **Linguagem**: TypeScript
 - **Roteamento**: Wouter
 - **Backend**: Express.js (simples para servir a aplicação)
-- **Hospedagem**: Preparado para Vercel
+- **Hospedagem**: Otimizado para deploy na Vercel
 
 ### Funcionalidades 
 
-- Design responsivo para todos os dispositivos
-- Temas claro e escuro
-- Seções interativas (Serviços, Portfólio, Depoimentos)
-- Carrossel de marcas parceiras
-- FAQ interativo
-- Formulário de contato
-- Navegação suave entre seções
+- Design responsivo para todos os dispositivos (mobile, tablet, desktop)
+- Sistema de tema claro/escuro com transições suaves
+- Seções interativas:
+  - Hero section com animações sutis
+  - Serviços com cards interativos
+  - Portfólio com galeria de projetos
+  - Depoimentos de clientes em carrossel
+- Carrossel de logos de marcas parceiras
+- FAQ interativo com acordeão expansível
+- Formulário de contato otimizado
+- Navegação suave entre seções (smooth scroll)
 - Efeitos visuais e animações sutis
+- Menu mobile otimizado para melhor experiência em dispositivos pequenos
 
 ## Estrutura do Projeto
 
@@ -30,18 +35,21 @@ Site institucional moderno para a agência Nzinga, desenvolvido com foco em comu
 .
 ├── client/               # Frontend da aplicação
 │   ├── src/              # Código fonte
-│   │   ├── assets/       # Recursos estáticos (imagens, fontes)
-│   │   ├── components/   # Componentes React
-│   │   ├── hooks/        # Custom hooks
+│   │   ├── assets/       # Recursos estáticos (imagens, logos dos parceiros)
+│   │   ├── components/   # Componentes React reutilizáveis
+│   │   │   ├── ui/       # Componentes de UI do shadcn
+│   │   │   └── ...       # Componentes específicos da aplicação
+│   │   ├── hooks/        # Custom hooks (useTheme, useMobile, etc.)
 │   │   ├── lib/          # Utilitários e helpers
-│   │   ├── pages/        # Páginas da aplicação
+│   │   ├── pages/        # Páginas da aplicação (Home, ServicoDetalhes, etc.)
 │   ├── index.html        # Template HTML principal
 │   ├── vite.config.ts    # Configuração do Vite
 ├── public/               # Arquivos públicos estáticos
 │   ├── images/           # Imagens públicas
-├── server/               # Servidor Express simples
+├── server/               # Servidor Express simples para servir a aplicação
 ├── shared/               # Código compartilhado entre client e server
 ├── package.json          # Dependências e scripts
+├── VERCEL_DEPLOY.md      # Instruções detalhadas de deploy na Vercel
 └── README.md             # Este arquivo
 ```
 
@@ -64,10 +72,23 @@ Para instruções detalhadas sobre como fazer o deploy deste projeto no Vercel, 
 
 ## Recursos Adicionais
 
-- Suporte a SEO incorporado em todas as páginas
-- Otimizado para performance com Lighthouse
-- Interface adaptativa para diferentes tamanhos de tela
+- Suporte a SEO incorporado em todas as páginas com meta tags otimizadas
+- Performance otimizada com melhores práticas do Lighthouse
+- Interface totalmente adaptativa para diferentes tamanhos de tela
+- Carousel de logos de empresas parceiras com animação fluida
+- Modo escuro/claro que respeita a preferência do sistema do usuário
+- Efeitos de parallax e microinterações para aumentar o engajamento
+
+## Próximos Passos
+
+Algumas melhorias futuras que podem ser implementadas:
+
+- Seção de blog para compartilhar insights e notícias
+- Área de acesso restrito para clientes
+- Sistema de agendamento de reuniões
+- Integração com redes sociais
+- Chat para atendimento direto
 
 ## Licença
 
-Copyright © 2024 Nzinga.
+Copyright © 2024 Nzinga. Todos os direitos reservados.
