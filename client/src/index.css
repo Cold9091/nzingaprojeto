@@ -48,6 +48,34 @@
   }
 }
 
+/* Animações para os elementos decorativos */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-slow-reverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Classes de utilidade para as animações */
+.animate-spin-slow {
+  animation: spin-slow 30s linear infinite;
+}
+
+.animate-spin-slow-reverse {
+  animation: spin-slow-reverse 20s linear infinite;
+}
+
 @keyframes float {
   0% {
     transform: translateY(0px);
