@@ -127,6 +127,12 @@ export default function Header() {
               >
                 Sobre
               </button>
+              <button 
+                onClick={() => handleNavigation("faq")} 
+                className="text-black dark:text-white hover-underline font-medium transition-all duration-300 hover:text-[#FFC400]"
+              >
+                FAQ
+              </button>
               <ThemeToggle />
               <Button 
                 onClick={() => handleNavigation("contacto")} 
@@ -209,6 +215,12 @@ export default function Header() {
                 className="text-left text-black dark:text-white text-xl py-4 font-medium border-b border-gray-200 dark:border-gray-800 hover:pl-2 transition-all duration-300 hover:text-[#FFC400]"
               >
                 Sobre
+              </button>
+              <button 
+                onClick={() => handleNavigation("faq")} 
+                className="text-left text-black dark:text-white text-xl py-4 font-medium border-b border-gray-200 dark:border-gray-800 hover:pl-2 transition-all duration-300 hover:text-[#FFC400]"
+              >
+                FAQ
               </button>
               <Button 
                 onClick={() => handleNavigation("contacto")} 

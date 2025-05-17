@@ -4,6 +4,8 @@ import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
 import PortfolioSection from "@/components/PortfolioSection";
 import TestimonialSection from "@/components/TestimonialSection";
+import LogoCarousel from "@/components/LogoCarousel";
+import FaqSection from "@/components/FaqSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
@@ -57,9 +59,11 @@ export default function Home() {
       <main>
         <HeroSection />
         <ServicesSection />
-        <AboutSection />
         <PortfolioSection />
+        <LogoCarousel />
+        <AboutSection />
         <TestimonialSection />
+        <FaqSection />
         <ContactSection />
       </main>
       <Footer />
