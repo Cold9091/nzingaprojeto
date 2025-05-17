@@ -4,7 +4,7 @@ import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
 import PortfolioSection from "@/components/PortfolioSection";
 import TestimonialSection from "@/components/TestimonialSection";
-import BrandsCarousel from "@/components/BrandsCarousel";
+import ClientBrands from "@/components/ClientBrands";
 import FaqSection from "@/components/FaqSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -60,7 +60,7 @@ export default function Home() {
         <HeroSection />
         <ServicesSection />
         <PortfolioSection />
-        <BrandsCarousel />
+        <ClientBrands />
         <AboutSection />
         <TestimonialSection />
         <FaqSection />
