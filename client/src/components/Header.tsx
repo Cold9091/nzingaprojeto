@@ -139,8 +139,11 @@ export default function Header() {
       </div>
       
       {/* Mobile Navigation - com suporte a tema claro/escuro */}
-      <div className={`lg:hidden fixed inset-0 pt-24 transition-all duration-500 transform bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm ${mobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-[-100%] opacity-0'}`}>
-        <div className="container mx-auto px-4 flex flex-col space-y-8">
+      <div className={`lg:hidden fixed inset-0 pt-24 transition-all duration-500 transform ${mobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-[-100%] opacity-0'}`}>
+        {/* Background overlay */}
+        <div className="absolute inset-0 bg-white dark:bg-gray-900 opacity-95 shadow-lg"></div>
+        
+        <div className="container mx-auto px-4 flex flex-col space-y-8 relative z-10">
           <button 
             onClick={() => handleNavigation("hero")} 
             className="text-black dark:text-white text-xl py-4 font-medium border-b border-gray-200 dark:border-gray-700 hover:pl-2 transition-all duration-300 hover:text-[#FFC400]"
@@ -174,8 +177,8 @@ export default function Header() {
         </div>
         
         {/* Elementos decorativos */}
-        <div className="absolute bottom-10 right-10 w-20 h-20 border border-[#FFC400]/20 rounded-full animate-rotate opacity-30"></div>
-        <div className="absolute bottom-40 left-10 w-32 h-32 border border-[#FFC400]/10 rounded-full animate-rotate opacity-20" style={{ animationDuration: '30s', animationDirection: 'reverse' }}></div>
+        <div className="absolute bottom-10 right-10 w-20 h-20 border border-[#FFC400]/20 rounded-full animate-rotate opacity-30 z-20"></div>
+        <div className="absolute bottom-40 left-10 w-32 h-32 border border-[#FFC400]/10 rounded-full animate-rotate opacity-20 z-20" style={{ animationDuration: '30s', animationDirection: 'reverse' }}></div>
       </div>
     </header>
   );

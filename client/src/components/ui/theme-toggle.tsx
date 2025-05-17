@@ -4,12 +4,22 @@ import { Button } from "./button";
 export function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
 
+  // Função para manipular o clique com prevenção de propagação
+  const handleThemeToggle = (e: React.MouseEvent) => {
+    // Impedir propagação do evento para que não seja capturado por elementos pais
+    e.stopPropagation();
+    // Aplicar um pequeno atraso para garantir que o evento seja processado
+    setTimeout(() => {
+      toggleTheme();
+    }, 50);
+  };
+
   return (
     <Button
       variant="ghost"
       size="icon"
-      onClick={toggleTheme}
-      className="w-10 h-10 rounded-full transition-all duration-300 hover:bg-black/10 dark:hover:bg-white/10 shadow-lg dark:shadow-white/10 active:scale-95 bg-white/30 dark:bg-black/30 backdrop-blur-sm"
+      onClick={handleThemeToggle}
+      className="w-10 h-10 rounded-full transition-all duration-300 hover:bg-black/10 dark:hover:bg-white/10 shadow-lg dark:shadow-white/10 active:scale-95 bg-white/30 dark:bg-black/30 backdrop-blur-sm relative z-50"
       aria-label="Alternar tema"
     >
       {theme === "light" ? (
