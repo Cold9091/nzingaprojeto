@@ -4,7 +4,7 @@ import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
 import PortfolioSection from "@/components/PortfolioSection";
 import TestimonialSection from "@/components/TestimonialSection";
-import LogoCarouselWithFallback from "@/components/LogoCarouselWithFallback";
+import BrandsCarousel from "@/components/BrandsCarousel";
 import FaqSection from "@/components/FaqSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
